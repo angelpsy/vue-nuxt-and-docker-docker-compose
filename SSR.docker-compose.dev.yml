@@ -1,0 +1,15 @@
+# for local development
+version: '3.7'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: SSR.Dockerfile
+      target: 'develop-stage'
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/app'
+    command: ["npm", "run", "dev"]
+    environment:
+      - CHOKIDAR_USEPOLLING=true

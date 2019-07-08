@@ -1,0 +1,12 @@
+# for start prod server development
+version: '3.7'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: SSR.Dockerfile
+      target: 'production-stage'
+    ports:
+      - '3000:3000'
+    environment:
+      - CHOKIDAR_USEPOLLING=false
